@@ -3,7 +3,6 @@ import streamlit as st
 
 st.set_page_config(page_icon="🔒", page_title="Password Strength Generator", layout="centered")
 
-
 background_image_url = "https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161363.jpg"
 
 st.markdown(
@@ -24,21 +23,41 @@ st.markdown(
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(6px);  /* Blur effect applied */
-            background: rgba(0, 0, 0, 0.3);  /* Light dark overlay */
+            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.3);
             z-index: -1;
         }}
 
-        /* Title color */
+        
         h1 {{
-            color: #4ffc !important;  /* Neon Cyan */
+            color: #4ffc !important; 
             text-align: center;
         }}
 
-        /* Paragraph text color (for st.write) */
+        
         p {{
-            color: #FFD700 !important;  /* Yellow */
+            color: #FFD700 !important;  
             text-align: center;
+        }}
+
+       
+        .created-by {{
+            background-color: #44cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }}
+        .created-by span {{
+            margin-left: 8px;
         }}
     </style>
     <div class="blur-layer"></div>
@@ -47,8 +66,14 @@ st.markdown(
 )
 
 # Page Title
-st.title("🔐 Password Strength Generator")  # This will now be Neon Cyan
-st.write("Enter your password below to check its security level. 🔎")  # This will now be Yellow
+st.title("🔐 Password Strength Generator")  
+st.write("Enter your password below to check its security level. 🔎")  
+
+
+st.markdown(
+    '<div class="created-by">🤘<span>Created by M Mudasir Chandio</span></div>',
+    unsafe_allow_html=True
+)
 
 # Function to Check Password Strength
 def check_password_strength(password):
@@ -96,4 +121,4 @@ if st.button("Check Strength"):
     if password:
         check_password_strength(password)
     else:
-        st.warning("⚠️ Please enter a password first!")  # Show warning if password is empty
+        st.warning("⚠️ Please enter a password first!")  
